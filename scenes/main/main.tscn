@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bwih6ucg3wo4u" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Texture2D" uid="uid://cskquh74cuopt" path="res://assets/environment/tilemap_packed.png" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://mffpdhn2qnda" path="res://scenes/game_camera/game_camera.tscn" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://xwqfmvgmx3ol" path="res://scenes/basic_enemy/basic_enemy.tscn" id="4_l3cfh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2fmo"]
 texture = ExtResource("1_iuonh")
@@ -58,3 +59,6 @@ tile_set = SubResource("TileSet_hyk8p")
 
 [node name="Player" parent="." unique_id=407612415 instance=ExtResource("1_hyk8p")]
 position = Vector2(316, 168)
+
+[node name="BasicEnemy" parent="." unique_id=363237804 instance=ExtResource("4_l3cfh")]
+position = Vector2(63, 57)
