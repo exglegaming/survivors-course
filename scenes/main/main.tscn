@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bwih6ucg3wo4u" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Texture2D" uid="uid://cskquh74cuopt" path="res://assets/environment/tilemap_packed.png" id="1_iuonh"]
+[ext_resource type="PackedScene" uid="uid://dgf41m8o5fo4p" path="res://scenes/manager/enemy_manager.tscn" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://mffpdhn2qnda" path="res://scenes/game_camera/game_camera.tscn" id="3_k2fmo"]
-[ext_resource type="PackedScene" uid="uid://xwqfmvgmx3ol" path="res://scenes/basic_enemy/basic_enemy.tscn" id="4_l3cfh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2fmo"]
 texture = ExtResource("1_iuonh")
@@ -51,6 +51,8 @@ sources/0 = SubResource("TileSetAtlasSource_k2fmo")
 
 [node name="Main" type="Node" unique_id=92906700]
 
+[node name="EnemyManager" parent="." unique_id=1911562668 instance=ExtResource("1_l3cfh")]
+
 [node name="GameCamera" parent="." unique_id=1627807066 instance=ExtResource("3_k2fmo")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1754120177]
@@ -59,9 +61,3 @@ tile_set = SubResource("TileSet_hyk8p")
 
 [node name="Player" parent="." unique_id=407612415 instance=ExtResource("1_hyk8p")]
 position = Vector2(316, 168)
-
-[node name="BasicEnemy" parent="." unique_id=363237804 instance=ExtResource("4_l3cfh")]
-position = Vector2(-60, -36)
-
-[node name="BasicEnemy2" parent="." unique_id=1520510490 instance=ExtResource("4_l3cfh")]
-position = Vector2(602, 41)
