@@ -61,4 +61,7 @@ tile_set = SubResource("TileSet_hyk8p")
 position = Vector2(316, 168)
 
 [node name="BasicEnemy" parent="." unique_id=363237804 instance=ExtResource("4_l3cfh")]
-position = Vector2(63, 57)
+position = Vector2(-60, -36)
+
+[node name="BasicEnemy2" parent="." unique_id=1520510490 instance=ExtResource("4_l3cfh")]
+position = Vector2(602, 41)
