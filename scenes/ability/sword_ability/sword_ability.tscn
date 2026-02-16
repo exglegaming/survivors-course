@@ -28,6 +28,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_abpad"]
 resource_name = "swing"
@@ -71,12 +83,27 @@ tracks/2/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t8g1f"]
 _data = {
 &"RESET": SubResource("Animation_upg5g"),
 &"swing": SubResource("Animation_abpad")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upg5g"]
+size = Vector2(30, 30)
 
 [node name="SwordAbility" type="Node2D" unique_id=896696562]
 
@@ -87,3 +114,12 @@ autoplay = &"swing"
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=600812186]
 texture = ExtResource("1_upg5g")
 offset = Vector2(0, -4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=928797319]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1761101003]
+position = Vector2(15, 0)
+shape = SubResource("RectangleShape2D_upg5g")
+disabled = true
