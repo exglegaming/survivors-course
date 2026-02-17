@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgf41m8o5fo4p" path="res://scenes/manager/enemy_manager.tscn" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://bscoui22k0tpb" path="res://scenes/manager/arena_time_manager.tscn" id="2_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://mffpdhn2qnda" path="res://scenes/game_object/game_camera/game_camera.tscn" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://cce3lycxwcgim" path="res://scenes/manager/experience_manager.tscn" id="4_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://c5b6bhoom1abt" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="7_hujxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k2fmo"]
@@ -60,6 +61,8 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 [node name="ArenaTimeManager" parent="." unique_id=268012414 instance=ExtResource("2_ow5a4")]
 
 [node name="EnemyManager" parent="." unique_id=1911562668 instance=ExtResource("1_l3cfh")]
+
+[node name="ExperienceManager" parent="." unique_id=912357865 instance=ExtResource("4_yyfjg")]
 
 [node name="GameCamera" parent="." unique_id=1627807066 instance=ExtResource("3_k2fmo")]
 
