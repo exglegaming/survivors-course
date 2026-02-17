@@ -9,6 +9,7 @@ radius = 5.0
 
 [node name="Player" type="CharacterBody2D" unique_id=407612415 groups=["player"]]
 collision_layer = 0
+motion_mode = 1
 script = ExtResource("1_dovo2")
 
 [node name="AbilityManager" type="Node" parent="." unique_id=1454310128]
