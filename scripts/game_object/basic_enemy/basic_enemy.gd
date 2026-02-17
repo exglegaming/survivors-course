@@ -4,12 +4,7 @@ extends CharacterBody2D
 
 const MAX_SPEED: float = 40.0
 
-@onready var area_2d: Area2D = $Area2D
 @onready var health_component: HealthComponent = $HealthComponent
-
-
-func _ready() -> void:
-	area_2d.area_entered.connect(_on_area_entered)
 
 
 func _physics_process(_delta: float) -> void:
@@ -23,7 +18,3 @@ func get_direction_to_player() -> Vector2:
 	if player_node != null:
 		return (player_node.global_position - global_position).normalized()
 	return Vector2.ZERO
-
-
-func _on_area_entered(_area: Area2D) -> void:
-	health_component.damage(100)

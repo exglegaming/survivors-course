@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cskquh74cuopt" path="res://assets/environment/tilemap_packed.png" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://dgf41m8o5fo4p" path="res://scenes/manager/enemy_manager.tscn" id="1_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://bscoui22k0tpb" path="res://scenes/manager/arena_time_manager.tscn" id="2_ow5a4"]
+[ext_resource type="PackedScene" uid="uid://cbpuiu10nkmud" path="res://scenes/ui/experience_bar.tscn" id="2_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://mffpdhn2qnda" path="res://scenes/game_object/game_camera/game_camera.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://cce3lycxwcgim" path="res://scenes/manager/experience_manager.tscn" id="4_yyfjg"]
 
@@ -56,6 +57,9 @@ sources/0 = SubResource("TileSetAtlasSource_k2fmo")
 
 [node name="ArenaTimeUI" parent="." unique_id=455276769 node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_6q06x")]
 arena_time_manager = NodePath("../ArenaTimeManager")
+
+[node name="ExperienceBar" parent="." unique_id=1108143012 node_paths=PackedStringArray("experience_manager") instance=ExtResource("2_yyfjg")]
+experience_manager = NodePath("../ExperienceManager")
 
 [node name="ArenaTimeManager" parent="." unique_id=268012414 instance=ExtResource("2_ow5a4")]
 

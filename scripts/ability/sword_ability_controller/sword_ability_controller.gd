@@ -7,6 +7,8 @@ const MAX_RANGE: float = 150.0
 @export_category("References")
 @export var sword_ability: PackedScene
 
+var damage: float = 5.0
+
 @onready var timer: Timer = $Timer
 
 
@@ -31,8 +33,9 @@ func _on_timer_timeout() -> void:
 		return a_distance < b_distance
 	)
 
-	var sword_instance: Node2D = sword_ability.instantiate()
+	var sword_instance: SwordAbility = sword_ability.instantiate()
 	player.get_parent().add_child(sword_instance)
+	sword_instance.hitbox_component.damage = damage
 	sword_instance.global_position = enemies[0].global_position
 	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0.0, TAU)) * 4.0
 
