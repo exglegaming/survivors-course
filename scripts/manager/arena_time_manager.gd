@@ -2,7 +2,7 @@ class_name ArenaTimeManager
 extends Node
 
 
-@export var victory_screen_scene: PackedScene
+@export var end_screen_scene: PackedScene
 
 @onready var timer: Timer = $Timer
 
@@ -16,5 +16,5 @@ func get_time_elapsed() -> float:
 
 
 func _on_timer_timeout() -> void:
-	var victory_screen_instance: VictoryScreen = victory_screen_scene.instantiate()
-	add_child(victory_screen_instance)
+	var end_screen_instance: EndScreen = end_screen_scene.instantiate()
+	add_child(end_screen_instance)

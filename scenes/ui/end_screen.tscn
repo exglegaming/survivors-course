@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://y4j2w45iwf84"]
 
-[ext_resource type="Script" uid="uid://clqv7bsy5prwf" path="res://scripts/ui/victory_screen.gd" id="1_dtet5"]
+[ext_resource type="Script" uid="uid://clqv7bsy5prwf" path="res://scripts/ui/end_screen.gd" id="1_4ttpn"]
 
-[node name="VictoryScreen" type="CanvasLayer" unique_id=591265151]
+[node name="EndScreen" type="CanvasLayer" unique_id=591265151]
 process_mode = 3
-script = ExtResource("1_dtet5")
+script = ExtResource("1_4ttpn")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1372437447]
 anchors_preset = 15
@@ -29,14 +29,16 @@ theme_override_constants/margin_bottom = 8
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1787106620]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=596197597]
+[node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=596197597]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Victory"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2058268652]
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2058268652]
+unique_name_in_owner = true
 layout_mode = 2
 text = "You won!"
 horizontal_alignment = 1
