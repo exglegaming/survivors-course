@@ -10,12 +10,15 @@ var number_colliding_bodies: int = 0
 @onready var collision_area_2d: Area2D = $CollisionArea2D
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var damage_interval_timer: Timer = $DamageIntervalTimer
+@onready var health_bar: ProgressBar = $HealthBar
 
 
 func _ready() -> void:
 	collision_area_2d.body_entered.connect(_on_body_entered)
 	collision_area_2d.body_exited.connect(_on_body_exited)
 	damage_interval_timer.timeout.connect(_on_damage_interval_timer_timeout)
+	health_component.health_changed.connect(_on_health_changed)
+	update_health_display()
 
 
 func _physics_process(delta: float) -> void:
@@ -41,6 +44,10 @@ func check_deal_damage() -> void:
 	print(health_component.current_health)
 
 
+func update_health_display() -> void:
+	health_bar.value = health_component.get_health_percent()
+
+
 func _on_body_entered(_body: Node2D) -> void:
 	number_colliding_bodies += 1
 	check_deal_damage()
@@ -52,3 +59,7 @@ func _on_body_exited(_body: Node2D) -> void:
 
 func _on_damage_interval_timer_timeout() -> void:
 	check_deal_damage()
+
+
+func _on_health_changed() -> void:
+	update_health_display()
