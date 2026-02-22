@@ -41,7 +41,6 @@ func check_deal_damage() -> void:
 	if number_colliding_bodies == 0 || !damage_interval_timer.is_stopped(): return
 	health_component.damage(1.0)
 	damage_interval_timer.start()
-	print(health_component.current_health)
 
 
 func update_health_display() -> void:

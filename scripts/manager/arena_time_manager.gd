@@ -2,13 +2,26 @@ class_name ArenaTimeManager
 extends Node
 
 
+signal arena_difficulty_increased(arena_difficulty: int)
+
+const DIFFICULTY_INTERVAL: float = 5.0
+
 @export var end_screen_scene: PackedScene
+
+var arena_difficulty: int = 0
 
 @onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timeout)
+
+
+func _process(_delta: float) -> void:
+	var next_time_target: float = timer.wait_time - ((arena_difficulty + 1) * DIFFICULTY_INTERVAL)
+	if timer.time_left <= next_time_target:
+		arena_difficulty += 1
+		arena_difficulty_increased.emit(arena_difficulty)
 
 
 func get_time_elapsed() -> float:
