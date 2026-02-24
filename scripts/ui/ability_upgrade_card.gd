@@ -1,4 +1,4 @@
-class_name AbilityUpgradeCard 
+class_name AbilityUpgradeCard
 extends PanelContainer
 
 
