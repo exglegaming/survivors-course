@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cmoqk2ixot3a3" path="res://scripts/game_object/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://udeijaobei6i" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_gmlin"]
 [ext_resource type="PackedScene" uid="uid://dmx25rbhp6f0w" path="res://scenes/component/health_component.tscn" id="2_ss5pk"]
-[ext_resource type="PackedScene" uid="uid://cpd31fbupa1ri" path="res://scenes/ability/axe_ability_controller/axe_ability_controller.tscn" id="4_tj6oj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ss5pk"]
 bg_color = Color(0.24705882, 0.14901961, 0.19215687, 1)
@@ -33,11 +32,9 @@ script = ExtResource("1_dovo2")
 
 [node name="HealthComponent" parent="." unique_id=2127481365 instance=ExtResource("2_ss5pk")]
 
-[node name="AbilityManager" type="Node" parent="." unique_id=1454310128]
+[node name="Abilities" type="Node" parent="." unique_id=1454310128]
 
-[node name="SwordAbilityController" parent="AbilityManager" unique_id=923200658 instance=ExtResource("2_gmlin")]
-
-[node name="AxeAbilityController" parent="AbilityManager" unique_id=584497516 instance=ExtResource("4_tj6oj")]
+[node name="SwordAbilityController" parent="Abilities" unique_id=923200658 instance=ExtResource("2_gmlin")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="." unique_id=1071821788]
 wait_time = 0.5
