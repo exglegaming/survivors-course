@@ -8,7 +8,7 @@ func _ready() -> void:
 	make_current()
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	acquire_target()
 	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 20))
 

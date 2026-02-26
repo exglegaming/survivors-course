@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://dpvlwd3lg2geo" path="res://scripts/game_object/game_camera/game_camera.gd" id="1_17y56"]
 
 [node name="GameCamera" type="Camera2D" unique_id=1627807066]
+process_callback = 0
 script = ExtResource("1_17y56")
