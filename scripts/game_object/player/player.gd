@@ -40,9 +40,7 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("RESET")
 
 	var move_sign: float = signf(movement_vector.x)
-	if move_sign == 0:
-		visuals.scale = Vector2.ONE
-	else:
+	if move_sign != 0:
 		visuals.scale = Vector2(move_sign, 1)
 
 

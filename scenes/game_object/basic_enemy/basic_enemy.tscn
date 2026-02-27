@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bi43akt176btc" path="res://scripts/game_object/basic_enemy/basic_enemy.gd" id="1_gxg7h"]
 [ext_resource type="PackedScene" uid="uid://dmx25rbhp6f0w" path="res://scenes/component/health_component.tscn" id="2_isd1k"]
 [ext_resource type="PackedScene" uid="uid://cef7wg8cw5wxy" path="res://scenes/component/vial_drop_component.tscn" id="3_pcrk2"]
+[ext_resource type="PackedScene" uid="uid://cg48m37wtr6qi" path="res://scenes/component/death_component.tscn" id="4_bq7hi"]
 [ext_resource type="PackedScene" uid="uid://jjcdov8ynbx1" path="res://scenes/component/hurtbox_component.tscn" id="4_elloc"]
 
 [sub_resource type="Animation" id="Animation_elloc"]
@@ -31,18 +32,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/Sprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_bq7hi"]
@@ -74,18 +63,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.17453292519943295, -0.17453292519943295, 0.17453292519943295, -0.17453292519943295]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/Sprite2D:scale")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jkye5"]
 _data = {
@@ -113,6 +90,10 @@ autoplay = &"walk"
 
 [node name="VialDropComponent" parent="." unique_id=1985902331 node_paths=PackedStringArray("health_component") instance=ExtResource("3_pcrk2")]
 health_component = NodePath("../HealthComponent")
+
+[node name="DeathComponent" parent="." unique_id=403674871 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_bq7hi")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="HurtboxComponent" parent="." unique_id=376683658 node_paths=PackedStringArray("health_component") instance=ExtResource("4_elloc")]
 visible = false
