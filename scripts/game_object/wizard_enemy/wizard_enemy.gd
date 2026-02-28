@@ -1,17 +1,15 @@
-class_name Enemy
+class_name WizardEnemy
 extends CharacterBody2D
 
 
-const MAX_SPEED: float = 40.0
-
-@onready var visuals: Node2D = $Visuals
 @onready var velocity_component: VelocityComponent = $VelocityComponent
+@onready var visuals: Node2D = $Visuals
 
 
-func _physics_process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	velocity_component.accelerate_to_player()
 	velocity_component.move(self)
 
 	var move_sign: float = signf(velocity.x)
 	if move_sign != 0:
-		visuals.scale = Vector2(move_sign, 1)
+		visuals.scale = Vector2(-move_sign, 1)

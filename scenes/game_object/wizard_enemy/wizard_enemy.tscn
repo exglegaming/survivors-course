@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b8g1dr1hpa4ar"]
+
+[ext_resource type="Texture2D" uid="uid://drixrn1067s6l" path="res://assets/enemy/wizard_enemy.png" id="1_43j36"]
+[ext_resource type="Script" uid="uid://bx5ax8tiujjg7" path="res://scripts/game_object/wizard_enemy/wizard_enemy.gd" id="1_qct4f"]
+[ext_resource type="PackedScene" uid="uid://dmx25rbhp6f0w" path="res://scenes/component/health_component.tscn" id="1_ukqif"]
+[ext_resource type="PackedScene" uid="uid://cg48m37wtr6qi" path="res://scenes/component/death_component.tscn" id="2_4jk3l"]
+[ext_resource type="PackedScene" uid="uid://cys3r3w7ihior" path="res://scenes/component/velocity_component.tscn" id="2_qgqx6"]
+[ext_resource type="PackedScene" uid="uid://jjcdov8ynbx1" path="res://scenes/component/hurtbox_component.tscn" id="3_865ah"]
+[ext_resource type="PackedScene" uid="uid://cef7wg8cw5wxy" path="res://scenes/component/vial_drop_component.tscn" id="4_rquut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qgqx6"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_865ah"]
+radius = 4.0
+
+[node name="WizardEnemy" type="CharacterBody2D" unique_id=135084713 groups=["enemy"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_qct4f")
+
+[node name="HealthComponent" parent="." unique_id=2127481365 instance=ExtResource("1_ukqif")]
+max_health = 30.0
+
+[node name="VelocityComponent" parent="." unique_id=518986456 instance=ExtResource("2_qgqx6")]
+max_speed = 60
+acceleration = 2.0
+
+[node name="VialDropComponent" parent="." unique_id=1985902331 node_paths=PackedStringArray("health_component") instance=ExtResource("4_rquut")]
+health_component = NodePath("../HealthComponent")
+
+[node name="DeathComponent" parent="." unique_id=403674871 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_4jk3l")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+
+[node name="Visuals" type="Node2D" parent="." unique_id=458911650]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1534273926]
+texture = ExtResource("1_43j36")
+offset = Vector2(0, -8)
+
+[node name="HurtboxComponent" parent="." unique_id=376683658 node_paths=PackedStringArray("health_component") instance=ExtResource("3_865ah")]
+position = Vector2(0, -7)
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=945409734]
+visible = false
+shape = SubResource("CircleShape2D_qgqx6")
+debug_color = Color(1, 0.28235295, 0.21960784, 0.34509805)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1346770372]
+visible = false
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_865ah")
