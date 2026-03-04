@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cg48m37wtr6qi" path="res://scenes/component/death_component.tscn" id="4_bq7hi"]
 [ext_resource type="PackedScene" uid="uid://jjcdov8ynbx1" path="res://scenes/component/hurtbox_component.tscn" id="4_elloc"]
 [ext_resource type="PackedScene" uid="uid://cys3r3w7ihior" path="res://scenes/component/velocity_component.tscn" id="4_jkye5"]
+[ext_resource type="PackedScene" uid="uid://d3pkxqflr6phj" path="res://scenes/component/hit_flash_component.tscn" id="8_v58qd"]
 
 [sub_resource type="Animation" id="Animation_elloc"]
 length = 0.001
@@ -71,6 +72,25 @@ _data = {
 &"walk": SubResource("Animation_bq7hi")
 }
 
+[sub_resource type="Shader" id="Shader_v58qd"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform float lerp_percent : hint_range(0.0, 1.0);
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	vec4 final_color = mix(texture_color, vec4(1.0, 1.0, 1.0, texture_color.a), lerp_percent);
+	COLOR = final_color;
+}
+
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4oqy"]
+resource_local_to_scene = true
+shader = SubResource("Shader_v58qd")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_elloc"]
 radius = 12.0
 
@@ -94,6 +114,11 @@ drop_percent = 0.35
 health_component = NodePath("../HealthComponent")
 
 [node name="VelocityComponent" parent="." unique_id=518986456 instance=ExtResource("4_jkye5")]
+
+[node name="HitFlashComponent" parent="." unique_id=1985580468 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("8_v58qd")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_t4oqy")
 
 [node name="DeathComponent" parent="." unique_id=403674871 node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_bq7hi")]
 health_component = NodePath("../HealthComponent")
