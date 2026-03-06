@@ -7,7 +7,8 @@ const MAX_RANGE: float = 150.0
 @export_category("References")
 @export var sword_ability: PackedScene
 
-var damage: float = 5.0
+var base_damage: float = 5.0
+var additional_damage_percent: float = 1.0
 var base_wait_time: float
 
 @onready var timer: Timer = $Timer
@@ -39,7 +40,7 @@ func _on_timer_timeout() -> void:
 	var sword_instance: SwordAbility = sword_ability.instantiate()
 	var foreground_layer: Node2D = get_tree().get_first_node_in_group("foreground_layer")
 	foreground_layer.add_child(sword_instance)
-	sword_instance.hitbox_component.damage = damage
+	sword_instance.hitbox_component.damage = base_damage * additional_damage_percent
 	sword_instance.global_position = enemies[0].global_position
 	sword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0.0, TAU)) * 4.0
 
@@ -48,8 +49,9 @@ func _on_timer_timeout() -> void:
 
 
 func _on_ability_upgraded_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary) -> void:
-	if upgrade.id != "sword_rate": return
-
-	var percent_reduction: float = current_upgrades["sword_rate"]["quantity"] * .1
-	timer.wait_time = base_wait_time * (1 - percent_reduction)
-	timer.start()
+	if upgrade.id == "sword_rate": 
+		var percent_reduction: float = current_upgrades["sword_rate"]["quantity"] * .1
+		timer.wait_time = base_wait_time * (1 - percent_reduction)
+		timer.start()
+	elif upgrade.id == "sword_damage":
+		additional_damage_percent = 1 + (current_upgrades["sword_damage"]["quantity"] * .15)
