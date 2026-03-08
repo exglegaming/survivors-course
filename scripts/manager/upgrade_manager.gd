@@ -6,6 +6,7 @@ const UPGRADE_AXE: Ability = preload("uid://cj6rjscy87rmy")
 const UPGRADE_AXE_DAMAGE: AbilityUpgrade = preload("uid://i4ywhxpm686q")
 const UPGRADE_SWORD_RATE: AbilityUpgrade = preload("uid://1dphxq8g21ol")
 const UPGRADE_SWORD_DAMAGE: AbilityUpgrade = preload("uid://cp23oy5y0sqnt")
+const UPGRADE_PLAYER_SPEED: AbilityUpgrade = preload("uid://dnp1exxd7jgno")
 
 @export var experience_manager: ExperienceManager
 @export var upgrade_screen_scene: PackedScene
@@ -18,6 +19,7 @@ func _ready() -> void:
 	upgrade_pool.add_item(UPGRADE_AXE, 10)
 	upgrade_pool.add_item(UPGRADE_SWORD_RATE, 10)
 	upgrade_pool.add_item(UPGRADE_SWORD_DAMAGE, 10)
+	upgrade_pool.add_item(UPGRADE_PLAYER_SPEED, 5)
 
 	experience_manager.level_up.connect(_on_level_up)
 

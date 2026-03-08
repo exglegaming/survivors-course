@@ -2,7 +2,7 @@ class_name VelocityComponent
 extends Node
 
 
-@export var max_speed: int = 40
+@export var max_speed: float = 40
 @export var acceleration: float = 5.0
 
 var velocity: Vector2 = Vector2.ZERO
