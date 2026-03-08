@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://y4j2w45iwf84" path="res://scenes/ui/end_screen.tscn" id="2_ouso4"]
 [ext_resource type="PackedScene" uid="uid://bscoui22k0tpb" path="res://scenes/manager/arena_time_manager.tscn" id="2_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://cbpuiu10nkmud" path="res://scenes/ui/experience_bar.tscn" id="2_yyfjg"]
+[ext_resource type="PackedScene" uid="uid://bhjlbeeh2ml1b" path="res://scenes/ui/vignette.tscn" id="3_blune"]
 [ext_resource type="PackedScene" uid="uid://mffpdhn2qnda" path="res://scenes/game_object/game_camera/game_camera.tscn" id="3_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://cce3lycxwcgim" path="res://scenes/manager/experience_manager.tscn" id="4_yyfjg"]
 [ext_resource type="PackedScene" uid="uid://bwpw50402nq8i" path="res://scenes/manager/upgrade_manager.tscn" id="6_b1x3f"]
@@ -132,6 +133,8 @@ sources/0 = SubResource("TileSetAtlasSource_k2fmo")
 [node name="Main" type="Node" unique_id=92906700]
 script = ExtResource("1_a8run")
 end_screen_scene = ExtResource("2_ouso4")
+
+[node name="Vignette" parent="." unique_id=397949573 instance=ExtResource("3_blune")]
 
 [node name="ArenaTimeUI" parent="." unique_id=455276769 node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_6q06x")]
 arena_time_manager = NodePath("../ArenaTimeManager")
