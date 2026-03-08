@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://vvdp7cjjmyg3"]
+
+[ext_resource type="AudioStream" uid="uid://dyimk232m4jee" path="res://assets/audio/hear_what_they_say.mp3" id="1_crwak"]
+[ext_resource type="Script" uid="uid://ddbf7qq17iyej" path="res://scripts/autoload/music_player.gd" id="2_xlf3v"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1839318869]
+process_mode = 3
+stream = ExtResource("1_crwak")
+volume_db = -12.0
+autoplay = true
+bus = &"music"
+script = ExtResource("2_xlf3v")
+
+[node name="Timer" type="Timer" parent="." unique_id=244398684]
+wait_time = 15.0
+one_shot = true
