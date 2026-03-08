@@ -5,6 +5,7 @@ extends Node2D
 @onready var area_2d: Area2D = $Area2D
 @onready var collision_Shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var random_stream_player_2d_component: RandomStreamPlayer2DComponent = $RandomStreamPlayer2DComponent
 
 
 func _ready() -> void:
@@ -42,3 +43,5 @@ func _on_area_entered(_area: Area2D) -> void:
 	tween.tween_property(sprite_2d, "scale", Vector2.ZERO, .05).set_delay(.45)
 	tween.chain()
 	tween.tween_callback(collect)
+
+	random_stream_player_2d_component.play_random()
