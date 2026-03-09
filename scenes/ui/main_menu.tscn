@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dx78wlijnnbbx" path="res://scripts/ui/main_menu.gd" id="1_1g8jr"]
 [ext_resource type="Texture2D" uid="uid://cskquh74cuopt" path="res://assets/environment/tilemap_packed.png" id="1_sl1te"]
+[ext_resource type="PackedScene" uid="uid://bhjlbeeh2ml1b" path="res://scenes/ui/vignette.tscn" id="2_m1kxf"]
 [ext_resource type="PackedScene" uid="uid://c8ubu1wfh324i" path="res://scenes/ui/sound_button.tscn" id="3_m1kxf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fe2o3"]
@@ -154,11 +155,7 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1853832869]
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
-theme_override_colors/font_outline_color = Color(0.14901961, 0.16862746, 0.26666668, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 8
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "The Arena"
 
@@ -176,3 +173,5 @@ text = "Options"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
+
+[node name="Vignette" parent="." unique_id=397949573 instance=ExtResource("2_m1kxf")]
