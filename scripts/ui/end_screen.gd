@@ -2,6 +2,8 @@ class_name EndScreen
 extends CanvasLayer
 
 
+const MAIN_SCENE_UID: StringName = "uid://dua013ovd67cr"
+
 @onready var restart_button: Button = %RestartButton
 @onready var quit_button: Button = %QuitButton
 @onready var title_label: Label = %TitleLabel
@@ -39,7 +41,7 @@ func play_jingle(defeat: bool = false) -> void:
 
 func _on_restart_button_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("uid://dua013ovd67cr")
+	get_tree().change_scene_to_file(MAIN_SCENE_UID)
 
 
 func _on_quit_button_pressed() -> void:
