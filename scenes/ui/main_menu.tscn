@@ -175,3 +175,4 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Vignette" parent="." unique_id=397949573 instance=ExtResource("2_m1kxf")]
+layer = 2

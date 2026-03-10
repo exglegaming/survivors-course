@@ -18,10 +18,14 @@ func _ready() -> void:
 
 
 func _on_play_pressed() -> void:
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
 	get_tree().change_scene_to_file(MAIN_SCENE_UID)
 
 
 func _on_options_pressed() -> void:
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
 	var options_instance: OptionsMenu = OPTIONS_SCENE.instantiate()
 	add_child(options_instance)
 	options_instance.back_pressed.connect(_on_options_closed.bind(options_instance))

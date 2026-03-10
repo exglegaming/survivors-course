@@ -60,12 +60,16 @@ func _on_resume_pressed() -> void:
 
 
 func _on_options_pressed() -> void:
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
 	var options_menu_instance: OptionsMenu = OPTIONS_MENU_SCENE.instantiate()
 	add_child(options_menu_instance)
 	options_menu_instance.back_pressed.connect(_on_options_back_pressed.bind(options_menu_instance))
 
 
 func _on_quit_pressed() -> void:
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
 	get_tree().paused = false
 	get_tree().change_scene_to_file(MAIN_MENU)
 
