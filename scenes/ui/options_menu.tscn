@@ -123,6 +123,7 @@ terrain_set_0/terrain_0/color = Color(1, 0, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_fe2o3")
 
 [node name="OptionsMenu" type="CanvasLayer" unique_id=1794439578]
+layer = 2
 script = ExtResource("1_imaij")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=658855962]
@@ -217,4 +218,4 @@ size_flags_horizontal = 0
 text = "Back"
 
 [node name="Vignette" parent="." unique_id=397949573 instance=ExtResource("2_0ejsc")]
-layer = 2
+layer = 3
