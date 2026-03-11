@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://ceffnannb2vgf"
 GameEvents="*uid://bxumjgrsavrg3"
 MusicPlayer="*uid://vvdp7cjjmyg3"
 ScreenTransition="*uid://bswygiblee4ho"
+MetaProgression="*uid://dtbx0lim3mjl2"
 
 [display]
 
