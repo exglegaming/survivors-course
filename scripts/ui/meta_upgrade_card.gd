@@ -13,6 +13,7 @@ var stored_upgrade: MetaUpgrade
 @onready var progress_bar: ProgressBar = %ProgressBar
 @onready var purchase_button: Button = %PurchaseButton
 @onready var progress_label: Label = %ProgressLabel
+@onready var count_label: Label = %CountLabel
 
 
 func _ready() -> void:
@@ -27,12 +28,21 @@ func set_meta_upgrade(upgrade: MetaUpgrade) -> void:
 
 
 func _update_progress() -> void:
+	var current_quantity: float = 0.0
+	if MetaProgression.save_data["meta_upgrades"].has(stored_upgrade.id):
+		current_quantity = MetaProgression.save_data["meta_upgrades"][stored_upgrade.id]["quantity"]
+	var is_maxed: bool =current_quantity >= stored_upgrade.max_quantity
 	var currency: float = MetaProgression.save_data["meta_upgrade_currency"]
 	var percent: float = currency / stored_upgrade.experience_cost
+
 	percent = min(percent, 1.0)
 	progress_bar.value = percent
-	purchase_button.disabled = percent < 1.0
+	purchase_button.disabled = percent < 1.0 || is_maxed
+	if is_maxed:
+		purchase_button.text = "Max"
+
 	progress_label.text = "%0d/%0d" % [currency, stored_upgrade.experience_cost]
+	count_label.text = "x%0d" % current_quantity
 
 
 func _on_purchase_pressed() -> void:

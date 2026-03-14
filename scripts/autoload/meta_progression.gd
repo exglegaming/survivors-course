@@ -24,6 +24,12 @@ func add_meta_upgrade(upgrade: MetaUpgrade) -> void:
 	save()
 
 
+func get_upgrade_count(upgrade_id: String) -> float:
+	if MetaProgression.save_data["meta_upgrades"].has(upgrade_id):
+		return save_data["meta_upgrades"][upgrade_id]["quantity"]
+	return 0.0
+
+
 func save() -> void:
 	var file: FileAccess = FileAccess.open(SAVE_FILE_PATH, FileAccess.WRITE)
 	file.store_var(save_data)

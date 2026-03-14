@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cskquh74cuopt" path="res://assets/environment/tilemap_packed.png" id="2_xe1at"]
 [ext_resource type="Resource" uid="uid://bic5cuxw1k10i" path="res://resources/meta_upgrades/experience_gain.tres" id="3_xe1at"]
 [ext_resource type="PackedScene" uid="uid://bhjlbeeh2ml1b" path="res://scenes/ui/vignette.tscn" id="4_w0aax"]
+[ext_resource type="PackedScene" uid="uid://cdvcbmrkjcpce" path="res://scenes/ui/meta_upgrade_card.tscn" id="5_tykgm"]
+[ext_resource type="PackedScene" uid="uid://c8ubu1wfh324i" path="res://scenes/ui/sound_button.tscn" id="7_b8kpi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fe2o3"]
 texture = ExtResource("2_xe1at")
@@ -148,7 +150,22 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 16
-columns = 3
+columns = 2
+
+[node name="MetaUpgradeCard" parent="MarginContainer/GridContainer" unique_id=966551469 instance=ExtResource("5_tykgm")]
+layout_mode = 2
+
+[node name="MetaUpgradeCard2" parent="MarginContainer/GridContainer" unique_id=1469140553 instance=ExtResource("5_tykgm")]
+layout_mode = 2
+
+[node name="BackButton" parent="MarginContainer" unique_id=1112098804 instance=ExtResource("7_b8kpi")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
+metadata/_custom_type_script = "uid://cmlmo1xxkcf5h"
 
 [node name="Vignette" parent="." unique_id=397949573 instance=ExtResource("4_w0aax")]
 layer = 3

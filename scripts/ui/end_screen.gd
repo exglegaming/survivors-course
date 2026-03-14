@@ -4,8 +4,9 @@ extends CanvasLayer
 
 const MAIN_SCENE_UID: StringName = "uid://dua013ovd67cr"
 const MAIN_MENU_UID: StringName = "uid://ky0b6i7ugvrp"
+const META_MENU_SCENE_UID: StringName = "uid://dmisgjdtlbysu"
 
-@onready var restart_button: Button = %RestartButton
+@onready var continue_button: Button = %ContinueButton
 @onready var quit_button: Button = %QuitButton
 @onready var title_label: Label = %TitleLabel
 @onready var description_label: Label = %DescriptionLabel
@@ -23,7 +24,7 @@ func _ready() -> void:
 
 
 	get_tree().paused = true
-	restart_button.pressed.connect(_on_restart_button_pressed)
+	continue_button.pressed.connect(_on_continue_button_pressed)
 	quit_button.pressed.connect(_on_quit_button_pressed)
 
 
@@ -40,11 +41,11 @@ func play_jingle(defeat: bool = false) -> void:
 		victory_stream_player.play()
 
 
-func _on_restart_button_pressed() -> void:
+func _on_continue_button_pressed() -> void:
 	ScreenTransition.transition()
 	await ScreenTransition.transition_halfway
 	get_tree().paused = false
-	get_tree().change_scene_to_file(MAIN_SCENE_UID)
+	get_tree().change_scene_to_file(META_MENU_SCENE_UID)
 
 
 func _on_quit_button_pressed() -> void:
