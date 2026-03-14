@@ -15,7 +15,11 @@ run/main_scene="uid://ky0b6i7ugvrp"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Survivors Course"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.24705882, 0.14901961, 0.19215687, 1)
+boot_splash/use_filter=false
+boot_splash/image="uid://17btvxhr1hmd"
+config/icon="uid://17btvxhr1hmd"
+config/windows_native_icon="res://icon.ico"
 
 [audio]
 
@@ -32,9 +36,11 @@ MetaProgression="*uid://dtbx0lim3mjl2"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/size/window_width_override=1920
 window/size/window_height_override=1080
 window/stretch/mode="viewport"
+window/size/mode.debug=0
 
 [dotnet]
 
